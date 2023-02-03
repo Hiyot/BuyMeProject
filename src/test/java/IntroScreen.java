@@ -6,10 +6,11 @@ public class IntroScreen {
 
     private WebDriver driver;
 
-    public void IntroScreen(WebDriver driver){
+    public IntroScreen(WebDriver driver) {
         this.driver = driver;
 
     }
+
     public void PressLogin(){
         driver.findElement(By.cssSelector("div[span = כניסה / הרשמה]")).click();
         driver.findElement(By.className("text-link theme")).click();

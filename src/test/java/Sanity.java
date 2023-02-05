@@ -1,4 +1,6 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -12,6 +14,7 @@ public class Sanity {
     public void beforeAll(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://buyme.co.il/");
+        DriverSingleton.getDriverInstance();
 
 
     }
@@ -21,5 +24,8 @@ public class Sanity {
         introScreen.PressLogin();
         introScreen.nameAndEmail();
         introScreen.password();
+
+
+
     }
 }

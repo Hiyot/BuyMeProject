@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -9,13 +10,15 @@ import java.util.concurrent.TimeUnit;
 
 public class Sanity {
     public static WebDriver driver;
+    public static WebDriverWait wait;
 
     @BeforeClass
     public void beforeAll(){
-        DriverSingleton.getDriverInstance();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver= DriverSingleton.getDriverInstance();
+        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://buyme.co.il/");
-        DriverSingleton.getDriverInstance();
+
     }
 @Test
     public void introTest(){
@@ -29,5 +32,13 @@ public class Sanity {
     @Test
     public void selectionTest(){
         HomeScreen homeScreen = new HomeScreen(driver);
+    }
+
+    @Test
+    public void pickBusiness(){
+        PickBusiness pickbusiness = new PickBusiness(driver);
+        pickbusiness.chooseBusiness();
+        pickbusiness.enterPrice();
+        pickbusiness.pressClick();
     }
 }

@@ -12,11 +12,10 @@ public class Sanity {
 
     @BeforeClass
     public void beforeAll(){
+        DriverSingleton.getDriverInstance();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://buyme.co.il/");
         DriverSingleton.getDriverInstance();
-
-
     }
 @Test
     public void introTest(){
@@ -25,7 +24,10 @@ public class Sanity {
         introScreen.nameAndEmail();
         introScreen.password();
 
+    }
 
-
+    @Test
+    public void selectionTest(){
+        HomeScreen homeScreen = new HomeScreen(driver);
     }
 }

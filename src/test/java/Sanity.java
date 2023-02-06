@@ -26,19 +26,29 @@ public class Sanity {
         introScreen.PressLogin();
         introScreen.nameAndEmail();
         introScreen.password();
-
     }
 
     @Test
     public void selectionTest(){
+
         HomeScreen homeScreen = new HomeScreen(driver);
+        homeScreen.selectPrice();
+        homeScreen.selectRegion();
+        homeScreen.selectCategory();
+        homeScreen.findMePresent();
     }
 
     @Test
     public void pickBusiness(){
-        PickBusiness pickbusiness = new PickBusiness(driver);
-        pickbusiness.chooseBusiness();
-        pickbusiness.enterPrice();
-        pickbusiness.pressClick();
+        PickBusiness pickBusiness = new PickBusiness(driver);
+        pickBusiness.chooseBusiness();
+        pickBusiness.enterPrice();
+        pickBusiness.pressClick();
+    }
+    @Test
+    public void informationTest(){
+        IntroScreen infoscreen = new IntroScreen(driver);
+        infoscreen.
+
     }
 }

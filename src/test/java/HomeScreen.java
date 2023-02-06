@@ -26,6 +26,7 @@ public class HomeScreen {
 
     public void findMePresent(){
      driver.findElement(By.id("ember1295")).click();
+
     }
 
 

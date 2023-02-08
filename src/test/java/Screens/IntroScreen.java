@@ -1,3 +1,5 @@
+package Screens;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -12,8 +14,11 @@ public class IntroScreen {
     }
 
     public void PressLogin(){
-        driver.findElement(By.xpath("/html/body/div[5]/div/header/div[1]/div/ul[1]/li[3]/a/span")).click();
+
+        driver.findElement(By.xpath("//*[@id=\"ember1005\"]/div/ul[1]/li[3]/a/span")).click();
         driver.findElement(By.className("text-link theme")).click();
+
+
 
     }
     public void nameAndEmail(){
